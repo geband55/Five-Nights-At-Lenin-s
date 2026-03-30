@@ -24,7 +24,7 @@ jobs:
           if (!(Test-Path $buildPath)) { New-Item -ItemType Directory -Force -Path $buildPath }
           & "$unityPath" -batchmode `
             -projectPath "$projectPath" `
-            -executeMethod BuildScript.BuildWindows `
+            -executeMethod BuildGame.BuildWindows `
             -buildTarget StandaloneWindows64 `
             -logFile "$projectPath\unity_build.log" `
             -quit
@@ -33,6 +33,7 @@ jobs:
         if: always()
         shell: powershell
         run: |
+          cd "${{ github.workspace }}"
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add -f build/StandaloneWindows64/
