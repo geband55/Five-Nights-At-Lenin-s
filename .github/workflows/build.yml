@@ -22,12 +22,19 @@ jobs:
           $projectPath = "${{ github.workspace }}"
           $buildPath = Join-Path $projectPath "build\StandaloneWindows64"
           if (!(Test-Path $buildPath)) { New-Item -ItemType Directory -Force -Path $buildPath }
-          & $unityPath -batchmode `
-            -projectPath $projectPath `
+          & "$unityPath" -batchmode `
+            -projectPath "$projectPath" `
             -executeMethod BuildScript.BuildWindows `
             -buildTarget StandaloneWindows64 `
             -logFile "$projectPath\unity_build.log" `
             -quit
+
+      - name: Setup SSH for Git
+        shell: powershell
+        run: |
+          Start-Service ssh-agent
+          ssh-add "C:\Users\user\.ssh\id_ed25519"
+          git remote set-url origin git@github.com:geband55/Five-Nights-At-Lenin-s.git
 
       - name: Upload build to LFS
         if: always()
@@ -35,6 +42,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add build/StandaloneWindows64/
-          git commit -m "Build: Windows ${{ github.sha }}" -ErrorAction SilentlyContinue
-          git push
+          git add -f build/StandaloneWindows64/
+          git commit -m "Build: Windows $($env:GITHUB_SHA)" -ErrorAction SilentlyContinue
+          git push origin HEAD:main
