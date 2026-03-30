@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
       - name: Checkout code
@@ -14,16 +14,13 @@ jobs:
         with:
           lfs: true
           fetch-depth: 0
-      
+
       - name: Build game
         uses: game-ci/unity-builder@v4
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
           buildsPath: build
-      
+
       - name: Upload build to LFS
         if: always()
         run: |
