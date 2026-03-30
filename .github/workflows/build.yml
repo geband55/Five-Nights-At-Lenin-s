@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,16 +16,25 @@ jobs:
           fetch-depth: 0
 
       - name: Build game
-        uses: game-ci/unity-builder@v4
-        with:
-          targetPlatform: StandaloneWindows64
-          buildsPath: build
+        shell: powershell
+        run: |
+          $unityPath = "C:\Users\user\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe"
+          $projectPath = "${{ github.workspace }}"
+          $buildPath = Join-Path $projectPath "build\StandaloneWindows64"
+          if (!(Test-Path $buildPath)) { New-Item -ItemType Directory -Force -Path $buildPath }
+          & $unityPath -batchmode `
+            -projectPath $projectPath `
+            -executeMethod BuildScript.BuildWindows `
+            -buildTarget StandaloneWindows64 `
+            -logFile "$projectPath\unity_build.log" `
+            -quit
 
       - name: Upload build to LFS
         if: always()
+        shell: powershell
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add build/StandaloneWindows64/
-          git commit -m "Build: Windows ${{ github.sha }}" || true
+          git commit -m "Build: Windows ${{ github.sha }}" -ErrorAction SilentlyContinue
           git push
