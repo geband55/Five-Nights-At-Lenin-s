@@ -18,7 +18,7 @@ jobs:
       - name: Build game
         shell: powershell
         run: |
-          $unityPath = "C:\Users\user\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe"
+          $unityPath = "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe"
           $projectPath = "${{ github.workspace }}"
           $buildPath = Join-Path $projectPath "build\StandaloneWindows64"
           if (!(Test-Path $buildPath)) { New-Item -ItemType Directory -Force -Path $buildPath }
