@@ -13,12 +13,15 @@ public static class BuildGame
         
         string exePath = Path.Combine(buildPath, "Lenfilm.exe");
         
-        BuildReport report = BuildPipeline.BuildPlayer(
-            EditorBuildSettings.scenes,
-            exePath,
-            BuildTarget.StandaloneWindows64,
-            BuildOptions.None
-        );
+        string[] scenes = { "Assets/Scenes/SampleScene.unity" };
+        BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
+        {
+            scenes = scenes,
+            locationPathName = exePath,
+            target = BuildTarget.StandaloneWindows64,
+            options = BuildOptions.None
+        };
+        BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
         
         if (report.summary.result == BuildResult.Succeeded)
             UnityEngine.Debug.Log("Build succeeded: " + exePath);
