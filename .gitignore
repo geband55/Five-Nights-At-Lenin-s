@@ -97,3 +97,13 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# IDE (Rider/IntelliJ)
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Burst / debug artifacts
+*BurstDebugInformation_DoNotShip*/
