@@ -26797,27 +26797,28 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4672158991757413732, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
     - {fileID: 65702495048144492, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
+    - {fileID: -8700617353114198275, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
       insertIndex: 18
       addedObject: {fileID: 1561597924}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 27
+      insertIndex: 26
       addedObject: {fileID: 1557058934}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 32
+      insertIndex: 31
       addedObject: {fileID: 1094490349}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 33
+      insertIndex: 32
       addedObject: {fileID: 1886528247}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 37
+      insertIndex: 36
       addedObject: {fileID: 444668024}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 40
+      insertIndex: 39
       addedObject: {fileID: 1409508090}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
-      insertIndex: 42
+      insertIndex: 41
       addedObject: {fileID: 1910341591}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2b20d8fb2d33b94db1b3d83bdfa37a4, type: 3}
       insertIndex: -1
