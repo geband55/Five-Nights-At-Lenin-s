@@ -101,6 +101,7 @@ InitTestScene*.unity*
 # IDE (Rider/IntelliJ)
 .idea/
 .vscode/
+.vsconfig
 
 # OS
 .DS_Store
