@@ -13,7 +13,7 @@ public static class BuildGame
         
         string exePath = Path.Combine(buildPath, "Lenfilm.exe");
         
-        string[] scenes = { "Assets/Scenes/SampleScene.unity" };
+        string[] scenes = { "Assets/Scenes/Open_Scene.unity", "Assets/Scenes/SampleScene.unity" };
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
         {
             scenes = scenes,
